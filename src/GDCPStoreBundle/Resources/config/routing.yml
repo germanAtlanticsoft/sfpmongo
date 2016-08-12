@@ -1,3 +1,7 @@
 gdcp_store_homepage:
     path:     /
     defaults: { _controller: GDCPStoreBundle:Default:index }
+dcp_store_create:
+    path:     /gdcp/create
+    defaults: { _controller: GDCPStoreBundle:Default:create }
+
