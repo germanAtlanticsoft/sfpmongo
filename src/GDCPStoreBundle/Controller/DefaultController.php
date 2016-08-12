@@ -25,4 +25,33 @@ class DefaultController extends Controller
 
         return new Response('Created product id '.$product->getId());
     }
+    
+    public function showAction($id)
+    {
+            
+        $product = $this->get('doctrine_mongodb')
+            ->getRepository('GDCPStoreBundle:Product')
+            ->find($id);
+        
+        if (!$product) {
+            throw $this->createNotFoundException('No product found for id '.$id);
+        }
+         
+        // do something, like pass the $product object into a template
+    }
+    
+    public function updateAction($id)
+    {
+        $dm = $this->get('doctrine_mongodb')->getManager();
+        $product = $dm->getRepository('GDCPStoreBundle:Product')->find($id);
+
+        if (!$product) {
+            throw $this->createNotFoundException('No product found for id '.$id);
+        }
+
+        $product->setName('New product name!');
+        $dm->flush();
+
+        return $this->redirect($this->generateUrl('homepage'));
+    }
 }

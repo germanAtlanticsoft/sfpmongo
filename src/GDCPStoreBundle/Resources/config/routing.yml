@@ -4,4 +4,13 @@ gdcp_store_homepage:
 dcp_store_create:
     path:     /gdcp/create
     defaults: { _controller: GDCPStoreBundle:Default:create }
+dcp_store_show:
+    path:     /gdcp/show/{id}
+    defaults: { _controller: GDCPStoreBundle:Default:show }
+dcp_store_update:
+    path:     /gdcp/update/{id}
+    defaults: { _controller: GDCPStoreBundle:Default:update }
+    
+    
+    
 
