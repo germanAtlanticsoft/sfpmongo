@@ -1,3 +1,7 @@
+gdcp_store:
+    resource: "@GDCPStoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
